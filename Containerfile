@@ -2,7 +2,8 @@
 FROM registry.access.redhat.com/ubi8/nodejs-20 as build
 
 WORKDIR /usr/src/app
-RUN sudo chown 1001:1001 /usr/src/app
+USER 1001
+RUN chown 1001:1001 /usr/src/app
 COPY --chown=1001:1001 package*.json ./
 RUN npm ci
 COPY --chown=1001:1001 tsconfig*.json ./
