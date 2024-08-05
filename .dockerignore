@@ -1,0 +1,5 @@
+*.js
+.git
+node_modules/
+README.md
+.github/
