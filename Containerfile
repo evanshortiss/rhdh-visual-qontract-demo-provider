@@ -2,10 +2,11 @@
 FROM registry.access.redhat.com/ubi8/nodejs-20 as build
 
 WORKDIR /usr/src/app
-COPY --chown=1001:0 package*.json ./
+RUN chown 1001:1001 /usr/src/app
+COPY --chown=1001:1001 package*.json ./
 RUN npm ci
-COPY --chown=1001:0 tsconfig*.json ./
-COPY --chown=1001:0 src src
+COPY --chown=1001:1001 tsconfig*.json ./
+COPY --chown=1001:1001 src src
 RUN npm run build
 
 # Second stage of the build is to create a lighter container with just enough
@@ -13,9 +14,9 @@ RUN npm run build
 FROM registry.access.redhat.com/ubi8/nodejs-20
 WORKDIR /usr/src/app
 
-COPY --chown=1001:0 --from=build /usr/src/app/package*.json/ .
+COPY --chown=1001:1001 --from=build /usr/src/app/package*.json/ .
 RUN npm ci --omit=dev
-COPY --chown=1001:0 --from=build /usr/src/app/build/ build/
+COPY --chown=1001:1001 --from=build /usr/src/app/build/ build/
 
 # Copy in the default data
 COPY ./data/ ./data/
