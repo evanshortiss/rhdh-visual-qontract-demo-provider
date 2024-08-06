@@ -1,6 +1,13 @@
 # RHDH Customisation Server
 
-A sample Node.js server that hosts customisations for Red Hat Developer Hub.
+A sample Node.js server that hosts customisations for Red Hat Developer Hub. 
+
+The Red Hat Developer Hub Documentation includes more information about
+supported customisations:
+
+* [Homepage](https://docs.redhat.com/en/documentation/red_hat_developer_hub/1.2/html/getting_started_with_red_hat_developer_hub/proc-customize-rhdh-homepage_rhdh-getting-started#proc-customize-rhdh-homepage_rhdh-getting-started)
+* [TechRader](https://docs.redhat.com/en/documentation/red_hat_developer_hub/1.2/html/getting_started_with_red_hat_developer_hub/proc-customize-rhdh-tech-radar-page_rhdh-getting-started)
+* [Learning Paths](https://docs.redhat.com/en/documentation/red_hat_developer_hub/1.2/html/getting_started_with_red_hat_developer_hub/proc-customize-rhdh-learning-paths_rhdh-getting-started)
 
 ## Deployment
 
