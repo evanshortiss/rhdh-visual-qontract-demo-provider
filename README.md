@@ -12,19 +12,20 @@ supported customisations:
 ## Deployment
 
 A set of sample YAML manifests are included in this repository to get the
-server up and running quickly. 
-
-Use the the `oc` or `kubectl` binary to deploy these in the same project
-or namespace as your Developer Hub instance:
+server up and running quickly. Use the the `oc` or `kubectl` binary to deploy
+these in the same project or namespace as your Developer Hub instance:
 
 ```bash
 oc apply -f k8s/manifests.yaml -n $RHDH_PROJECT_NS
 ```
 
 Next, update the Red Hat Developer Hub configuration to use the deployed
-customisation server by adding to the `proxy` configuration key. Typically
-this involves updating the *app-config-rhdh.yaml* that contains your custom
-configurations for your Red Hat Developer Hub instance:
+customisation server, by adding to the `proxy` configuration key to your Red
+Hat Developer Hub custom configuration. Typically this involves updating the
+*app-config-rhdh.yaml* that's stored in the *app-config-rhdh* ConfigMap.
+
+> [!NOTE]
+> The Red Hat Developer Hub documentation contains a guide on [how to create the *app-config-rhdh* ConfigMap](https://docs.redhat.com/en/documentation/red_hat_developer_hub/1.2/html/administration_guide_for_red_hat_developer_hub/assembly-add-custom-app-file-openshift_admin-rhdh).
 
 ```yaml
 data:
