@@ -39,19 +39,28 @@ data:
           # customisation server in the same namespace
           target: http://rhdh-customisation-server:8080
           pathRewrite:
-            '^/api/proxy/developer-hub': /
+            '^/api/proxy/developer-hub/tech-radar': /techradar
+            '^/api/proxy/developer-hub': /home
           changeOrigin: true
 ```
 
 ## Configuration
 
-Currently, this server has the ability to serve custom "Quick Access" links
-to an instance of Red Hat Developer Hub.
+Currently, this server has the ability to serve custom "Quick Access" links and
+TechRadar data to an instance of Red Hat Developer Hub.
 
 ### Homepage "Quick Access" Links
 
 These are the links displayed on the home page of Red Hat Developer Hub. By
 default, this server will use the links defined in */data/home.json*.
+
+To define a set of custom links, edit the *home.json* entry in the example
+*rhdh-homepage-data* ConfigMap.
+
+### TechRadar Data
+
+This data is displayed on the TechRadar page of Red Hat Developer Hub. Enable
+
 
 To define a set of custom links, edit the *home.json* entry in the example
 *rhdh-homepage-data* ConfigMap.

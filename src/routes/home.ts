@@ -20,7 +20,10 @@ export default async function getHomeRoute (log: Logger, config: ApplicationConf
     process.exit(1)
   }
 
-  route.get('/', (req, res) => res.json(homeData))
+  route.get('/', (req, res) => {
+    console.log('x')
+    res.json(homeData)
+  })
 
   return route
 }
