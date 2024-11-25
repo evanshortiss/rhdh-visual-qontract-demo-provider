@@ -1,7 +1,7 @@
 import getServer from './server'
 import getApplicationConfig from './config'
 import getLogger from './log'
-console.log(process.env.HTTP_PORT)
+
 const config = getApplicationConfig(process.env)
 const log = getLogger(config.LOG_LEVEL)
 
@@ -17,7 +17,6 @@ async function main () {
       process.exit(0)
     })
   })
-
 
   const server = await getServer(log, config)
 

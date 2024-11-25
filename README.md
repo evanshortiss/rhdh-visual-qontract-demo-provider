@@ -37,7 +37,7 @@ data:
           # Rewrite requests from the UI to the /developer-hub endpoint to the
           # RHDH backend API, and fulfill them using the base path (/) from the
           # customisation server in the same namespace
-          target: http://rhdh-customisation-server:8080
+          target: http://rhdh-visual-qontract-provider:8080
           pathRewrite:
             '^/api/proxy/developer-hub/tech-radar': /techradar
             '^/api/proxy/developer-hub': /home

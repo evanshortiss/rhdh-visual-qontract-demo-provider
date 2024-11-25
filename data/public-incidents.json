@@ -1,0 +1,73 @@
+{
+  "kind": "IncidentList",
+  "page": 1,
+  "size": 1,
+  "total": 1,
+  "items": [
+    {
+      "id": "wgvkrcfx49x0",
+      "kind": "Incident",
+      "href": "https://status.redhat.com/incidents/wgvkrcfx49x0",
+      "incident_id": "FOO-2024-17555",
+      "summary": "OpenShift Cluster Manager Database Maintenance 2024-11-24",
+      "products": [
+        "OpenShift Cluster Manager"
+      ],
+      "incident_type": "internal",
+      "status": "ongoing",
+      "severity": "1",
+      "external_coordination": [
+        "https://meet.google.com/"
+      ],
+      "creator": {
+        "id": "6b1cc7b7",
+        "kind": "User",
+        "href": "https://status.redhat.com/incidents/wgvkrcfx49x0",
+        "username": "service-account-incidents",
+        "created_at": "2023-07-18T13:42:00.132854Z",
+        "updated_at": "2024-11-12T16:00:36.414533Z"
+      },
+      "participants": [
+        {
+          "id": "eshortis",
+          "kind": "User",
+          "href": "https://status.redhat.com/incidents/wgvkrcfx49x0",
+          "name": "Eavn Shportiss",
+          "email": "eshortis@redhat.com",
+          "username": "eshortis@redhat.com",
+          "created_at": "2023-11-06T08:08:00.538705Z",
+          "updated_at": "2023-11-06T08:08:00.538705Z"
+        }
+      ],
+      "viewers": [
+        {
+          "id": "eshortis",
+          "kind": "User",
+          "href": "https://status.redhat.com/incidents/wgvkrcfx49x0",
+          "username": "wgvkrcfx49x0",
+          "created_at": "2023-07-18T13:42:00.132854Z",
+          "updated_at": "2024-11-12T16:00:36.414533Z"
+        }
+      ],
+      "created_at": "2024-10-16T15:42:19.483097Z",
+      "updated_at": "2024-11-25T22:33:18.879692Z",
+      "resolved_at": "2024-10-16T15:42:23.015903Z",
+      "last_opened_at": "2024-10-16T15:42:23.267904Z",
+      "reopen_counter": 1,
+      "private": false,
+      "invalid": false,
+      "ansible_playbook": "end2end",
+      "metadata": {
+        "end2end_test_incident_id": "wgvkrcfx49x0",
+        "post_createIncident_errors": {
+          "slack": {
+            "Code": 31,
+            "HttpCode": 500,
+            "Reason": "Incident created, user doesn't have set up team. Can't create channel or post a message."
+          }
+        }
+      },
+      "working_time": 3
+    }
+  ]
+}

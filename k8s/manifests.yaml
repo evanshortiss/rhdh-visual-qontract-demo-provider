@@ -1,135 +1,12 @@
 ---
-kind: ConfigMap
-apiVersion: v1
-metadata:
-  name: rhdh-homepage-data
-data:
-  home.json: |
-    [
-      {
-        "title": "COMMUNITY",
-        "isExpanded": true,
-        "links": [
-          {
-            "iconUrl": "/homepage/icons/icons8/web.png",
-            "label": "Website",
-            "url": "https://redhat.com/"
-          },
-          {
-            "iconUrl": "/homepage/icons/icons8/external-blog-copywriting-itim2101-lineal-itim2101.png",
-            "label": "Blog",
-            "url": "https://janus-idp.io/blog"
-          },
-          {
-            "iconUrl": "/homepage/icons/icons8/github.png",
-            "label": "GitHub",
-            "url": "https://github.com/orgs/janus-idp"
-          },
-          {
-            "iconUrl": "/homepage/icons/icons8/slack-new.png",
-            "label": "Slack",
-            "url": "https://join.slack.com/t/janus-idp/shared_invite/zt-1pxtehxom-fCFtF9rRe3vFqUiFFeAkmg"
-          },
-          {
-            "iconUrl": "/homepage/icons/icons8/youtube-play.png",
-            "label": "YouTube Channel",
-            "url": "https://www.youtube.com/@januscommunity"
-          },
-          {
-            "iconUrl": "/homepage/icons/icons8/external-mailing-list-information-technology-solid-solidglyph-m-oki-orlando.png",
-            "label": "Mailing List",
-            "url": "https://groups.google.com/g/janus-idp-community"
-          },
-          {
-            "iconUrl": "/homepage/icons/icons8/tear-off-calendar.png",
-            "label": "Calendar",
-            "url": "https://calendar.google.com/calendar/u/0?cid=amFudXMuaWRwLmNvbW11bml0eUBnbWFpbC5jb20"
-          }
-        ]
-      },
-      {
-        "title": "DEVELOPER TOOLS",
-        "isExpanded": false,
-        "links": [
-          {
-            "iconUrl": "/homepage/icons/podman_logo.svg",
-            "label": "Podman Desktop",
-            "url": "https://podman-desktop.io"
-          }
-        ]
-      },
-      {
-        "title": "CI/CD TOOLS",
-        "isExpanded": false,
-        "links": [
-          {
-            "iconUrl": "/homepage/icons/argo-icon-color.svg",
-            "label": "ArgoCD",
-            "url": ""
-          },
-          {
-            "iconUrl": "/homepage/icons/sonarqube.svg",
-            "label": "SonarQube (Coming Soon)",
-            "url": ""
-          },
-          {
-            "iconUrl": "/homepage/icons/quay.svg",
-            "label": "Quay.io",
-            "url": "https://quay.io/"
-          }
-        ]
-      },
-      {
-        "title": "OPENSHIFT CLUSTERS",
-        "isExpanded": false,
-        "links": [
-          {
-            "iconUrl": "/homepage/icons/icons8/openshift.png",
-            "label": "OpenShift",
-            "url": ""
-          }
-        ]
-      },
-      {
-        "title": "MONITORING TOOLS",
-        "links": [
-          {
-            "iconUrl": "/homepage/icons/icons8/system-task.png",
-            "label": "Grafana",
-            "url": ""
-          }
-        ]
-      },
-      {
-        "title": "SECURITY TOOLS",
-        "links": [
-          {
-            "iconUrl": "/homepage/icons/icons8/security-checked.png",
-            "label": "GitHub Security",
-            "url": "https://github.com/orgs/janus-idp"
-          },
-          {
-            "iconUrl": "/homepage/icons/keycloak.svg",
-            "label": "Keycloak",
-            "url": ""
-          },
-          {
-            "iconUrl": "/homepage/icons/icons8/safe-out.png",
-            "label": "Vault",
-            "url": ""
-          }
-        ]
-      }
-    ]
----
 kind: ImageStream
 apiVersion: image.openshift.io/v1
 metadata:
-  name: rhdh-customisation-server
+  name: rhdh-visual-qontract-provider
   labels:
-    app: rhdh-customisation-server
-    app.kubernetes.io/component: rhdh-customisation-server
-    app.kubernetes.io/instance: rhdh-customisation-server
+    app: rhdh-visual-qontract-provider
+    app.kubernetes.io/component: rhdh-visual-qontract-provider
+    app.kubernetes.io/instance: rhdh-visual-qontract-provider
 spec:
   lookupPolicy:
     local: false
@@ -137,7 +14,7 @@ spec:
     - name: latest
       from:
         kind: DockerImage
-        name: quay.io/evanshortiss/rhdh-customisation-server
+        name: quay.io/evanshortiss/rhdh-visual-qontract-provider
       importPolicy:
         importMode: Legacy
       referencePolicy:
@@ -146,11 +23,11 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: rhdh-customisation-server
+  name: rhdh-visual-qontract-provider
   labels:
-    app: rhdh-customisation-server
-    app.kubernetes.io/component: rhdh-customisation-server
-    app.kubernetes.io/instance: rhdh-customisation-server
+    app: rhdh-visual-qontract-provider
+    app.kubernetes.io/component: rhdh-visual-qontract-provider
+    app.kubernetes.io/instance: rhdh-visual-qontract-provider
 spec:
   ipFamilies:
     - IPv4
@@ -164,39 +41,31 @@ spec:
   ipFamilyPolicy: SingleStack
   sessionAffinity: None
   selector:
-    deployment: rhdh-customisation-server
+    deployment: rhdh-visual-qontract-provider
 ---
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  name: rhdh-customisation-server
+  name: rhdh-visual-qontract-provider
   labels:
-    app: rhdh-customisation-server
-    app.kubernetes.io/component: rhdh-customisation-server
-    app.kubernetes.io/instance: rhdh-customisation-server
+    app: rhdh-visual-qontract-provider
+    app.kubernetes.io/component: rhdh-visual-qontract-provider
+    app.kubernetes.io/instance: rhdh-visual-qontract-provider
 spec:
   replicas: 1
   selector:
     matchLabels:
-      deployment: rhdh-customisation-server
+      deployment: rhdh-visual-qontract-provider
   template:
     metadata:
       creationTimestamp: null
       labels:
-        deployment: rhdh-customisation-server
+        deployment: rhdh-visual-qontract-provider
     spec:
-      volumes:
-        - name: rhdh-data
-          configMap:
-            name: rhdh-homepage-data
-            items:
-              - key: home.json
-                path: home.json
-            defaultMode: 420
       containers:
-        - name: rhdh-customisation-server
+        - name: rhdh-visual-qontract-provider
           image: >-
-            quay.io/evanshortiss/rhdh-customisation-server
+            quay.io/evanshortiss/rhdh-visual-qontract-provider
           ports:
             - containerPort: 8080
               protocol: TCP

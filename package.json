@@ -1,5 +1,5 @@
 {
-  "name": "rhdh-custom-homepage-links",
+  "name": "rhdh-visual-qontract-provider",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -21,7 +21,6 @@
     "env-var": "~7.5.0",
     "express": "~4.19.2",
     "morgan": "~1.10.0",
-    "pino": "~9.3.2",
-    "zod": "~3.23.8"
+    "pino": "~9.3.2"
   }
 }

@@ -1,0 +1,198 @@
+[
+  {
+    "title": "Hot News",
+    "id": "hot-news",
+    "stories": [
+      {
+        "title": "Incident Management Roll-out",
+        "id": "incident-management-roll-out",
+        "date": "2024-11-24",
+        "image": "/resources/images/news/incident-management.png",
+        "featured": true,
+        "tags": [
+          "blog",
+          "web-rca",
+          "incident-management"
+        ],
+        "link": {
+          "text": "Read More",
+          "url": "https://source.redhat.com/groups/public/sre/blog/incident_management_roll_out"
+        },
+        "body": "The unified Incident Management process is GA! Please start using this process starting Dec 2."
+      },
+      {
+        "title": "inScope Onboarding Guide",
+        "id": "inscope-onboarding-guide",
+        "date": "2024-10-7",
+        "image": "/resources/images/news/inscope-onboarding-guide.webp",
+        "featured": true,
+        "tags": [
+          "inscope",
+          "documentation"
+        ],
+        "link": {
+          "text": "Read More",
+          "url": "/docs/default/component/inscope-onboarding-guide"
+        },
+        "body": "Get your apps and templates on inScope, even if you aren't on App Interface."
+      },
+      {
+        "title": "Convo: AI Doc Search",
+        "id": "convo-inscope",
+        "date": "2024-10-1",
+        "image": "/resources/images/news/convo.webp",
+        "featured": true,
+        "tags": [
+          "inscope",
+          "ai",
+          "documentation"
+        ],
+        "link": {
+          "text": "Check it out!",
+          "url": "/convo"
+        },
+        "body": "Chat with documentation using AI in inScope!"
+      },
+      {
+        "title": "Firelink on inScope",
+        "id": "firelink-on-inscope",
+        "date": "2024-09-10",
+        "image": "/resources/images/news/firelink.webp",
+        "featured": true,
+        "tags": [
+          "firelink",
+          "ephemeral",
+          "openshift",
+          "inscope"
+        ],
+        "link": {
+          "text": "Check it out!",
+          "url": "/firelink"
+        },
+        "body": "Manage ephemeral namespaces right from inScope!"
+      },
+      {
+        "title": "App SRE Monthly June 2024",
+        "id": "app-sre-monthly-june-2024",
+        "date": "2024-06-12",
+        "image": "/resources/images/news/news-placeholder-1.webp",
+        "featured": true,
+        "tags": [
+          "appsre",
+          "sre",
+          "newsletter"
+        ],
+        "link": {
+          "text": "Read More",
+          "url": "https://source.redhat.com/groups/public/sre/blog/appsre_monthly_june_2024"
+        },
+        "body": "Cost, Service Health, and more in the June 2024 edition of App SRE Monthly."
+      },
+      {
+        "title": "Frontend Konflux Onboarding Video",
+        "id": "konflux-onboarding-video",
+        "date": "2024-05-31",
+        "image": "/resources/images/news/konflux-video.webp",
+        "featured": true,
+        "tags": [
+          "konflux",
+          "frontend",
+          "video"
+        ],
+        "link": {
+          "text": "Watch Now",
+          "url": "https://drive.google.com/file/d/1wjpF-HCVU6Ao-eE1jTcM0_urhRYSe6dE/view?usp=sharing"
+        },
+        "body": "Check out this video on how to onboard with Konflux for frontends."
+      },
+      {
+        "title": "Konflux Onboarding Guide",
+        "id": "konflux-onboarding-guide",
+        "date": "2024-05-31",
+        "image": "/resources/images/news/konflux-onboarding.webp",
+        "featured": true,
+        "tags": [
+          "konflux",
+          "documentation"
+        ],
+        "link": {
+          "text": "Read More",
+          "url": "https://gitlab.cee.redhat.com/konflux/docs/users/-/blob/main/README.md"
+        },
+        "body": "The Konflux team has a great doc for onboarding Red Hat products. Check it out!"
+      },
+      {
+        "title": "Frontend Builds with Konflux",
+        "id": "frontend-builds-with-konflux",
+        "date": "2024-6-1",
+        "tags": [
+          "konflux",
+          "code",
+          "github"
+        ],
+        "image": "/resources/images/news/frontend-build-system.webp",
+        "featured": true,
+        "link": {
+          "text": "View on GitHub",
+          "url": "https://github.com/RedHatInsights/konflux-consoledot-frontend-build"
+        },
+        "body": "This GitHub repo contains everything you need to build frontends with Konflux."
+      }
+    ]
+  },
+  {
+    "title": "What's New with inScope?",
+    "id": "whats-new",
+    "stories": [
+      {
+        "title": "Snyk Integration",
+        "id": "snyk-integration",
+        "date": "2024-05-31",
+        "tags": [
+          "snyk",
+          "security",
+          "plugins"
+        ],
+        "image": "/resources/images/news/snyk-integration.webp",
+        "featured": true,
+        "link": {
+          "text": "Try it out",
+          "url": "/catalog/default/component/clowder/snyk"
+        },
+        "body": "View Snyk vulnerability reports for your project right in inScope. Go check it out!"
+      },
+      {
+        "title": "Explore OpenAPI Definitions",
+        "id": "openapi-definitions",
+        "date": "2024-05-31",
+        "tags": [
+          "openapi",
+          "api",
+          "documentation"
+        ],
+        "image": "/resources/images/news/openapi-definitions.webp",
+        "featured": true,
+        "link": {
+          "text": "Try it out",
+          "url": "/catalog/default/api/insights-host-inventory/definition"
+        },
+        "body": "Did you know you can view OpenAPI definitions for your APIs in inScope? Check it out!"
+      },
+      {
+        "title": "Progressive Delivery Topology",
+        "id": "progressive-delivery-topology",
+        "date": "2024-05-31",
+        "tags": [
+          "delivery"
+        ],
+        "image": "/resources/images/news/progressive-delivery.webp",
+        "featured": false,
+        "link": {
+          "text": "Try it out",
+          "url": "/catalog/default/component/advisor-backend/undefined"
+        },
+        "body": "You can view the topology of your progressive delivery in inScope. Check it out!"
+      }
+    ]
+  }
+]
