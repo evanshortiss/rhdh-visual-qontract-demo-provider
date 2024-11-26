@@ -12,6 +12,9 @@ export default async function getServer (log: Logger, config: ApplicationConfig)
 
   app.use(express.static(join('./data')))
 
+  const status = JSON.parse(readFileSync('./data/status.json', 'utf8'))
+  app.get('/status', (_, res) => res.json(status))
+
   const incidents = JSON.parse(readFileSync('./data/public-incidents.json', 'utf8'))
   app.get('/plugin-web-rca-backend/incidents/public', (_, res) => res.json(incidents))
 

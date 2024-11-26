@@ -79,9 +79,6 @@ spec:
             limits:
               memory: "256Mi"
               cpu: "250m"
-          volumeMounts:
-            - name: rhdh-data
-              mountPath: /etc/data
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
           imagePullPolicy: IfNotPresent
