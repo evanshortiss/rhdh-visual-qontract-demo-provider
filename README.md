@@ -1,66 +1,122 @@
-# RHDH Customisation Server
+# Red Hat Developer Hub Demo: Visual Qontract Server
 
-A sample Node.js server that hosts customisations for Red Hat Developer Hub. 
+A Node.js server that hosts customisations for Red Hat Developer Hub homepage. Specifically, it responds with data required to power the [backstage-plugin-visual-qontract](https://github.com/RedHatInsights/backstage-plugin-visual-qontract) plugin.
 
-The Red Hat Developer Hub Documentation includes more information about
-supported customisations:
+## Usage
 
-* [Home Page](https://docs.redhat.com/en/documentation/red_hat_developer_hub/1.2/html/getting_started_with_red_hat_developer_hub/proc-customize-rhdh-homepage_rhdh-getting-started#proc-customize-rhdh-homepage_rhdh-getting-started)
-* [Tech Radar](https://docs.redhat.com/en/documentation/red_hat_developer_hub/1.2/html/getting_started_with_red_hat_developer_hub/proc-customize-rhdh-tech-radar-page_rhdh-getting-started)
-* [Learning Paths](https://docs.redhat.com/en/documentation/red_hat_developer_hub/1.2/html/getting_started_with_red_hat_developer_hub/proc-customize-rhdh-learning-paths_rhdh-getting-started)
-
-## Deployment
-
-A set of sample YAML manifests are included in this repository to get the
-server up and running quickly. Use the the `oc` or `kubectl` binary to deploy
-these in the same project or namespace as your Developer Hub instance:
+Deploy the *rhdh-visual-qontract-provider* using the _k8s/manifests.yaml_ in
+the same namespace as your Red Hat Developer Hub instance:
 
 ```bash
-oc apply -f k8s/manifests.yaml -n $RHDH_PROJECT_NS
+oc apply -f k8s/manifests.yaml -n $NAMESPACE
 ```
 
-Next, update the Red Hat Developer Hub configuration to use the deployed
-customisation server, by adding to the `proxy` configuration key to your Red
-Hat Developer Hub custom configuration. Typically this involves updating the
-*app-config-rhdh.yaml* that's stored in the *app-config-rhdh* ConfigMap.
-
-> [!NOTE]
-> The Red Hat Developer Hub documentation contains a guide on [how to create the *app-config-rhdh* ConfigMap](https://docs.redhat.com/en/documentation/red_hat_developer_hub/1.2/html/administration_guide_for_red_hat_developer_hub/assembly-add-custom-app-file-openshift_admin-rhdh).
+Add the following entries in the `proxy` configuration for your Red Hat Developer Hub:
 
 ```yaml
-data:
-  app-config-rhdh.yaml: |
-    proxy:
-      endpoints:
-        # Add the proxied endpoint for homepage quick links
-        '/developer-hub':
-          # Rewrite requests from the UI to the /developer-hub endpoint to the
-          # RHDH backend API, and fulfill them using the base path (/) from the
-          # customisation server in the same namespace
-          target: http://rhdh-visual-qontract-provider:8080
-          pathRewrite:
-            '^/api/proxy/developer-hub/tech-radar': /techradar
-            '^/api/proxy/developer-hub': /home
-          changeOrigin: true
+proxy:
+  endpoints:
+    /developer-hub:
+      credentials: dangerously-allow-unauthenticated
+      pathRewrite:
+        ^/api/proxy/developer-hub: /resources/json/homepage.json
+      target: 'http://rhdh-visual-qontract-provider:8080'
+    /inscope-resources:
+      changeOrigin: true
+      credentials: dangerously-allow-unauthenticated
+      secure: false
+      target: 'http://rhdh-visual-qontract-provider:8080'
+    /status:
+      changeOrigin: true
+      credentials: dangerously-allow-unauthenticated
+      secure: false
+      target: 'http://rhdh-visual-qontract-provider:8080/status'
 ```
 
-## Configuration
+And add the following to your plugins configuration:
 
-Currently, this server has the ability to serve custom "Quick Access" links and
-TechRadar data to an instance of Red Hat Developer Hub.
-
-### Homepage "Quick Access" Links
-
-These are the links displayed on the home page of Red Hat Developer Hub. By
-default, this server will use the links defined in */data/home.json*.
-
-To define a set of custom links, edit the *home.json* entry in the example
-*rhdh-homepage-data* ConfigMap.
-
-### TechRadar Data
-
-This data is displayed on the TechRadar page of Red Hat Developer Hub. Enable
-
-
-To define a set of custom links, edit the *home.json* entry in the example
-*rhdh-homepage-data* ConfigMap.
+```yaml
+- disabled: false
+  integrity: sha256-FON+jcCWWBjHBL2TsKrrSstmJhnoiscom761iFWMseg=
+  package: >-
+    https://github.com/evanshortiss/backstage-plugin-visual-qontract/releases/download/dev/redhatinsights-backstage-plugin-visual-qontract-1.4.7.tgz
+  pluginConfig:
+    dynamicPlugins:
+      frontend:
+        redhatinsights.backstage-plugin-visual-qontract:
+          dynamicRoutes:
+            - importName: EntityQontractHomePageComponent
+              path: /
+            - importName: EntityQontractNewsComponent
+              menuItem:
+                icon: techdocs
+                text: News
+              path: /news
+          mountPoints:
+            - config:
+                if:
+                  allOf:
+                    - isType: application
+                layout:
+                  gridColumnEnd:
+                    lg: span 4
+                    md: span 6
+                    xs: span 12
+              importName: EntityQontractNamespacesContent
+              mountPoint: entity.page.overview/cards
+            - config:
+                if:
+                  allOf:
+                    - isType: application
+                layout:
+                  gridColumnEnd:
+                    lg: span 4
+                    md: span 6
+                    xs: span 12
+              importName: EntityQontractPipelinesComponent
+              mountPoint: entity.page.overview/cards
+            - config:
+                if:
+                  allOf:
+                    - isType: application
+                layout:
+                  gridColumnEnd:
+                    lg: span 4
+                    md: span 6
+                    xs: span 12
+              importName: EntityQontractCodeComponentsContent
+              mountPoint: entity.page.overview/cards
+            - config:
+                if:
+                  allOf:
+                    - isType: application
+                layout:
+                  gridColumnEnd:
+                    lg: span 4
+                    md: span 6
+                    xs: span 12
+              importName: EntityQontractEscalationPolicyComponent
+              mountPoint: entity.page.overview/cards
+            - config:
+                if:
+                  allOf:
+                    - isType: application
+                layout:
+                  gridColumnEnd:
+                    lg: span 4
+                    md: span 6
+                    xs: span 12
+              importName: EntityQontractDependenciesContent
+              mountPoint: entity.page.overview/cards
+            - config:
+                if:
+                  allOf:
+                    - isType: application
+                layout:
+                  gridColumnEnd:
+                    lg: span 6
+                    md: span 6
+                    xs: span 12
+              importName: EntityQontractSLOComponent
+              mountPoint: entity.page.overview/cards
+```
