@@ -33,7 +33,7 @@ proxy:
       target: 'http://rhdh-visual-qontract-provider:8080/status'
 ```
 
-And add the following to your plugins configuration:
+And add the following to your plugins configuration (make sure to get the latest SHA value from [backstage-plugin-visual-qontract/releases](https://github.com/evanshortiss/backstage-plugin-visual-qontract/releases/tag/dev):
 
 ```yaml
 - disabled: false
