@@ -7,7 +7,11 @@
     "dev": "tsx src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["rhdh", "developer", "hub"],
+  "keywords": [
+    "rhdh",
+    "developer",
+    "hub"
+  ],
   "author": "Evan Shortiss",
   "license": "MIT",
   "description": "",
@@ -21,6 +25,7 @@
     "env-var": "~7.5.0",
     "express": "~4.19.2",
     "morgan": "~1.10.0",
-    "pino": "~9.3.2"
+    "pino": "~9.3.2",
+    "rss-parser": "^3.13.0"
   }
 }
